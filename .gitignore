@@ -47,7 +47,12 @@ hs_err_pid*
 /src/minecraft/*
 /src/minecraft_server/*
 !/src/minecraft/net
+!/src/minecraft_server/net
 /src/minecraft/net/minecraft/*
+/src/minecraft_server/net/minecraft/*
 !/src/minecraft/net/minecraft/src
+!/src/minecraft_server/net/minecraft/src
 /src/minecraft/net/minecraft/src/*
+/src/minecraft_server/net/minecraft/src/*
 !/src/minecraft/net/minecraft/src/metasmeltapi
+!/src/minecraft_server/net/minecraft/src/metasmeltapi
