@@ -7,7 +7,6 @@ public class ConcreteHandler {
 	
 	@SuppressWarnings("deprecation")
 	public ConcreteHandler() {
-		System.out.println("Ping!");
 		
 		mod_HowManyItems.addModTab(new TabSmeltingMetadata(new BaseMod() {
 

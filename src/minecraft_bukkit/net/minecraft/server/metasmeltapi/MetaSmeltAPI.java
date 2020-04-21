@@ -2,13 +2,14 @@ package net.minecraft.server.metasmeltapi;
 
 import java.util.Map;
 
-import net.minecraft.server.Block;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.TileEntity;
+import net.minecraft.server.*;
+
+// MetaSmeltAPI v2.0 BUKKIT
 
 public class MetaSmeltAPI {
 	
 	private static boolean hasInit = false;
+	public static HandlerModLoader modloaderHandler;
 
 	public static void addRecipe(ItemStack input, ItemStack output) {
 		if(!hasInit) {
@@ -17,7 +18,6 @@ public class MetaSmeltAPI {
 		FurnaceManager.INSTANCE.addSmelting(input, output);
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void init() {
 		if(hasInit) {
 			return;
@@ -25,7 +25,13 @@ public class MetaSmeltAPI {
 		hasInit = true;
 		Utils.replaceBlock(new BlockFurnaceMetadataFix(Block.FURNACE, false), Block.FURNACE);
 		Utils.replaceBlock(new BlockFurnaceMetadataFix(Block.BURNING_FURNACE, true), Block.BURNING_FURNACE);
-		new Utils.EasyField<Map>(TileEntity.class, "a").get().put("Furnace", TileEntityFurnaceMetadataFix.class);
-		new Utils.EasyField<Map>(TileEntity.class, "b").get().put(TileEntityFurnaceMetadataFix.class, "Furnace");
+		new Utils.EasyField<Map<String, Class<? extends TileEntity>>>(TileEntity.class, "a").get().put("Furnace", TileEntityFurnaceMetadataFix.class);
+		new Utils.EasyField<Map<Class<? extends TileEntity>, String>>(TileEntity.class, "b").get().put(TileEntityFurnaceMetadataFix.class, "Furnace");
+		if(Utils.nmsClassExists("ModLoader")) {
+			modloaderHandler = (HandlerModLoader) Utils.getHandler("modloader");
+		}
+		else {
+			modloaderHandler = new HandlerModLoader();
+		}
 	}
 }

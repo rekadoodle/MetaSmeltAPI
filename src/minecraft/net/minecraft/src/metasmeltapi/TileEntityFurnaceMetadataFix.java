@@ -207,7 +207,7 @@ public class TileEntityFurnaceMetadataFix extends TileEntityFurnace {
             return 100;
         } else
         {
-            return ModLoader.AddAllFuel(i);
+            return MetaSmeltAPI.modloaderHandler.burnTime(itemstack);
         }
     }
 

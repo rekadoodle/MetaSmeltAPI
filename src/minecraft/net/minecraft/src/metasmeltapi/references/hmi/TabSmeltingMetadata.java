@@ -9,7 +9,7 @@ import net.minecraft.src.metasmeltapi.Utils;
 
 public class TabSmeltingMetadata extends TabSmelting {
 	
-	private final List<FurnaceManager.Recipe> recipeList = new Utils.EasyField<List<FurnaceManager.Recipe>>(FurnaceManager.class, "recipes").get(FurnaceManager.INSTANCE);
+	private final List<FurnaceManager.Recipe> recipeList = new Utils.EasyField<List<FurnaceManager.Recipe>>(FurnaceManager.class, "RECIPES").get(FurnaceManager.INSTANCE);
 
 	public TabSmeltingMetadata(BaseMod tabCreator) {
 		super(tabCreator);

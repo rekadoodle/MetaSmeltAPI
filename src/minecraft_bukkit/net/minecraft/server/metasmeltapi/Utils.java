@@ -16,6 +16,10 @@ public class Utils {
 		return true;
 	}
 	
+	public static boolean nmsClassExists(String className) {
+		return classExists(className) || classExists("net.minecraft.server." + className);
+	}
+	
 	public static int clearBlockID(Block block) {
 		return clearBlockID(block.id);
 	}
