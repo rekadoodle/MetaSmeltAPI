@@ -46,13 +46,19 @@ hs_err_pid*
 # Source
 /src/minecraft/*
 /src/minecraft_server/*
+/src/minecraft_bukkit/*
 !/src/minecraft/net
 !/src/minecraft_server/net
+!/src/minecraft_bukkit/net
 /src/minecraft/net/minecraft/*
 /src/minecraft_server/net/minecraft/*
+/src/minecraft_bukkit/net/minecraft/*
 !/src/minecraft/net/minecraft/src
 !/src/minecraft_server/net/minecraft/src
+!/src/minecraft_bukkit/net/minecraft/server
 /src/minecraft/net/minecraft/src/*
 /src/minecraft_server/net/minecraft/src/*
+/src/minecraft_bukkit/net/minecraft/server/*
 !/src/minecraft/net/minecraft/src/metasmeltapi
 !/src/minecraft_server/net/minecraft/src/metasmeltapi
+!/src/minecraft_bukkit/net/minecraft/server/metasmeltapi
