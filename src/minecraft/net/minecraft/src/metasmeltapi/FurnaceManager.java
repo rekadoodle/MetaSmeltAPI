@@ -1,7 +1,9 @@
 package net.minecraft.src.metasmeltapi;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.minecraft.src.*;
 
@@ -21,6 +23,12 @@ public class FurnaceManager {
 	public void addSmelting(ItemStack input, ItemStack output)
     {
         RECIPES.add(new Recipe(input, output));
+        Map<Integer, ItemStack> idMap = RECIPES_EFFICIENT.get(input.itemID);
+        if(idMap == null) {
+        	idMap = new HashMap<Integer, ItemStack>();
+        	RECIPES_EFFICIENT.put(input.itemID, idMap);
+        }
+        idMap.put(input.getItemDamage(), output);
     }
 
 	public ItemStack getSmeltingResult(ItemStack input)
@@ -33,6 +41,15 @@ public class FurnaceManager {
         return FurnaceRecipes.smelting().getSmeltingResult(input.itemID);
     }
 	
+	public ItemStack getSmeltingResultEfficient(ItemStack input) {
+		ItemStack result = RECIPES_EFFICIENT.get(input.itemID).get(input.getItemDamage()).copy();
+		if(result == null) {
+			result = FurnaceRecipes.smelting().getSmeltingResult(input.itemID);
+		}
+		return result;
+	}
+	
 	private final List<Recipe> RECIPES = new ArrayList<Recipe>();
+	private final Map<Integer, Map<Integer, ItemStack>> RECIPES_EFFICIENT = new HashMap<Integer, Map<Integer, ItemStack>>();
 	public static final FurnaceManager INSTANCE = new FurnaceManager();
 }
