@@ -1,20 +1,18 @@
 package net.minecraft.src.metasmeltapi.references.modloader;
 
 
+import java.util.LinkedList;
+
 import net.minecraft.src.*;
 import net.minecraft.src.metasmeltapi.HandlerModLoader;
 import net.minecraft.src.metasmeltapi.Utils;
 
 public class ConcreteHandler extends HandlerModLoader {
 
-	public ConcreteHandler() {
-		if(nmsIsModLoaded("mod_HowManyItems")) {
-			Utils.getHandler("hmi");
-		}
-	}
+	public static BaseMod basemod = new mod_MetaSmeltAPI();
 	
-	private boolean nmsIsModLoaded(String modName) {
-		return ModLoader.isModLoaded(modName) || ModLoader.isModLoaded("net.minecraft.src." + modName);
+	public ConcreteHandler() {
+		new Utils.EasyField<LinkedList<BaseMod>>(ModLoader.class, "modList").get().add(basemod);
 	}
 	
 	@Override
