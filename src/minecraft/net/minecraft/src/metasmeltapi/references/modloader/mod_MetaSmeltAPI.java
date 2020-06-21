@@ -18,6 +18,9 @@ public class mod_MetaSmeltAPI extends BaseMod {
 		if(nmsIsModLoaded("mod_HowManyItems")) {
 			Utils.getHandler("hmi");
 		}
+		if(nmsIsModLoaded("mod_IC2Mp")) {
+			Utils.getHandler("ic2mp");
+		}
 	}
 
 	private boolean nmsIsModLoaded(String modName) {
