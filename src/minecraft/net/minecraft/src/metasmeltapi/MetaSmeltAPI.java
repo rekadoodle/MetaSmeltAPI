@@ -4,7 +4,7 @@ import java.util.Map;
 
 import net.minecraft.src.*;
 
-//MetaSmeltAPI v2.0 CLIENT
+//MetaSmeltAPI v2.1 CLIENT
 
 public class MetaSmeltAPI {
 	

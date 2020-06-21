@@ -4,7 +4,7 @@ import java.util.Map;
 
 import net.minecraft.server.*;
 
-// MetaSmeltAPI v2.0 BUKKIT
+// MetaSmeltAPI v2.1 BUKKIT
 
 public class MetaSmeltAPI {
 	
