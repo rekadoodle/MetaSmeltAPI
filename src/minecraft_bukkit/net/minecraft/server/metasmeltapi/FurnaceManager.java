@@ -42,11 +42,13 @@ public class FurnaceManager {
     }
 	
 	public ItemStack getSmeltingResultEfficient(ItemStack input) {
-		ItemStack result = RECIPES_EFFICIENT.get(input.id).get(input.damage).cloneItemStack();
-		if(result == null) {
-			result = FurnaceRecipes.getInstance().a(input.id);
+		if(RECIPES_EFFICIENT.containsKey(input.id)) {
+			Map<Integer, ItemStack> metaMap = RECIPES_EFFICIENT.get(input.id);
+			if(metaMap.containsKey(input.damage)) {
+				return metaMap.get(input.damage);
+			}
 		}
-		return result;
+		return FurnaceRecipes.getInstance().a(input.id);
 	}
 	
 	private final List<Recipe> RECIPES = new ArrayList<Recipe>();
