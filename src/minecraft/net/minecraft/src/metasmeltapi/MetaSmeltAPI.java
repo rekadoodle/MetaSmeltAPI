@@ -31,7 +31,7 @@ public class MetaSmeltAPI {
 		new Utils.EasyField<Map<Class<? extends TileEntity>, String>>(TileEntity.class, "classToNameMap", "b").get().put(tileEntityClass, id);
 	}
 	
-	private static void init() {
+	public static void init() {
 		if(hasInit) {
 			return;
 		}
