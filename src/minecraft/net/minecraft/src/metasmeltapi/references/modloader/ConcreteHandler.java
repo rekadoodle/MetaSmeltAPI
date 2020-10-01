@@ -9,10 +9,10 @@ import net.minecraft.src.metasmeltapi.Utils;
 
 public class ConcreteHandler extends HandlerModLoader {
 
-	public static BaseMod basemod = new mod_MetaSmeltAPI();
+	public static final BaseMod BASEMOD = new mod_MetaSmeltAPI();
 	
 	public ConcreteHandler() {
-		new Utils.EasyField<LinkedList<BaseMod>>(ModLoader.class, "modList").get().add(basemod);
+		new Utils.EasyField<LinkedList<BaseMod>>(ModLoader.class, "modList").get().add(BASEMOD);
 	}
 	
 	@Override
